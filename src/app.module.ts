@@ -4,12 +4,15 @@ import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/kuanto_kusta', {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    }),
+    MongooseModule.forRoot(
+      'mongodb+srv://gustavo:CEV5nps8fVhEZ7PM@mongodb.zenp9.mongodb.net/kuanto_kusta?retryWrites=true&w=majority',
+      {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+      },
+    ),
     ProductModule,
   ],
   controllers: [],
