@@ -15,7 +15,11 @@ export class ProductService {
   }
 
   async show(_id: string): Promise<Product> {
-    return await this.Product.findOne({ _id });
+    try {
+      return await this.Product.findOne({ _id });
+    } catch (error) {
+      throw new Error('Product not found');
+    }
   }
 
   async create(productDto: ProductDto): Promise<Product> {

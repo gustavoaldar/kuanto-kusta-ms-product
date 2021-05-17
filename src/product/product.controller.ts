@@ -21,7 +21,11 @@ export class ProductController {
   }
   @Get(':id')
   async show(@Param('id') _id: string) {
-    return await this.productService.show(_id);
+    try {
+      return await this.productService.show(_id);
+    } catch (error) {
+      return error;
+    }
   }
   @Post()
   @UsePipes(ValidationPipe)
